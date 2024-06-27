@@ -4,6 +4,7 @@ class CreateReviews < ActiveRecord::Migration[7.1]
       t.text :content
       t.string :reviewer_name
       t.references :book, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end

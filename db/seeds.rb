@@ -24,6 +24,13 @@ Review.destroy_all
     published_date: Faker::Date.backward(days: 365 * 5) # Random date in the past 5 years
   )
 
+  # Create users
+User.create!(
+    username: "user1",
+    email: "user1@example.com",
+    password: "password"
+  )
+
   # Create ratings for each book
   rand(5..10).times do
     Rating.create(
@@ -33,11 +40,13 @@ Review.destroy_all
   end
 
   # Create reviews for each book
-  rand(2..5).times do
-    Review.create(
-      content: Faker::Lorem.paragraph(sentence_count: 5),
-      reviewer_name: Faker::Name.name,
-      book: book
+  Book.all.each do |book|
+  User.all.each do |user|
+    Review.create!(
+      content: Faker::Lorem.paragraph,
+      reviewer_name: user.username,
+      book: book,
+      user: user
     )
   end
 end
