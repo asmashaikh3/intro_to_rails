@@ -1,19 +1,19 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-
 require 'faker'
 
 # Clear existing data
 Book.destroy_all
 Rating.destroy_all
 Review.destroy_all
+User.destroy_all
+
+# Create users
+5.times do
+  User.create!(
+    username: Faker::Internet.username,
+    email: Faker::Internet.email,
+    password: "password"
+  )
+end
 
 # Create books
 50.times do
@@ -24,13 +24,6 @@ Review.destroy_all
     published_date: Faker::Date.backward(days: 365 * 5) # Random date in the past 5 years
   )
 
-  # Create users
-User.create!(
-    username: "user1",
-    email: "user1@example.com",
-    password: "password"
-  )
-
   # Create ratings for each book
   rand(5..10).times do
     Rating.create(
@@ -39,9 +32,9 @@ User.create!(
     )
   end
 
-  # Create reviews for each book
-  Book.all.each do |book|
-  User.all.each do |user|
+  # Create reviews for each book by random users
+  rand(3..5).times do
+    user = User.order("RANDOM()").first  # Select a random user
     Review.create!(
       content: Faker::Lorem.paragraph,
       reviewer_name: user.username,
