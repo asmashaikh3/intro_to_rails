@@ -1,8 +1,8 @@
 <h1>Books</h1>
 
-<ul class="book-list">
+<ul>
   <% @books.each do |book| %>
-    <li class="book-item">
+    <li>
       <strong>Title:</strong> <%= link_to book.title, book %><br>
       <strong>Author:</strong> <%= book.author %><br>
       <strong>Genre:</strong> <%= book.genre %><br>
@@ -10,5 +10,3 @@
     </li>
   <% end %>
 </ul>
-
-

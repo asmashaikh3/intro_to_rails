@@ -12,7 +12,7 @@ class RatingsController < ApplicationController
     def create
       @rating = @book.ratings.build(rating_params)
       if @rating.save
-        redirect_to book_ratings_path(@book)
+        redirect_to book_path(@book), notice: 'Rating was successfully created.'
       else
         render :new
       end

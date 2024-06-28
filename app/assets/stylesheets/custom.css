@@ -1,0 +1,83 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Container */
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Header */
+  header {
+    background: #007bff;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+  /* Books List */
+  .book-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .book-list li {
+    background: white;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .book-list li strong {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  /* Buttons */
+  .btn {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 10px 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+  }
+  
+  .btn-primary {
+    background: #007bff;
+  }
+  
+  .btn-secondary {
+    background: #6c757d;
+  }
+  
+  /* Forms */
+  form {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  form .field {
+    margin-bottom: 15px;
+  }
+  
+  form .field label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  form .actions {
+    text-align: right;
+  }
+  

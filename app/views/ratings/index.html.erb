@@ -1,7 +1,16 @@
 <h1>Ratings for <%= @book.title %></h1>
 
-<ul>
-  <% @ratings.each do |rating| %>
-    <li>Score: <%= rating.score %></li>
-  <% end %>
-</ul>
+<% if @ratings.any? %>
+  <ul>
+    <% @ratings.each do |rating| %>
+      <li>
+        <strong>Score:</strong> <%= rating.score %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No ratings available for this book.</p>
+<% end %>
+
+<%= link_to 'Back', book_path(@book), class: 'btn btn-secondary' %>
+<%= link_to 'Add Rating', new_book_rating_path(@book), class: 'btn btn-primary' %>
