@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+
+ .book-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .book-item {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  
