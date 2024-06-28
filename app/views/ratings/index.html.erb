@@ -1,0 +1,7 @@
+<h1>Ratings for <%= @book.title %></h1>
+
+<ul>
+  <% @ratings.each do |rating| %>
+    <li>Score: <%= rating.score %></li>
+  <% end %>
+</ul>

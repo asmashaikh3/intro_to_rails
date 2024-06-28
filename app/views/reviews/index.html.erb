@@ -1,0 +1,10 @@
+<h1>Reviews for <%= @book.title %></h1>
+
+<ul>
+  <% @reviews.each do |review| %>
+    <li>
+      <strong>Reviewer:</strong> <%= review.reviewer_name %><br>
+      <strong>Content:</strong> <%= review.content %>
+    </li>
+  <% end %>
+</ul>

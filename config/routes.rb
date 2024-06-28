@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :books
+  resources :books do
+    resources :ratings, only: [:index, :new, :create]
+    resources :reviews, only: [:index, :new, :create]
+  end
+  resources :users, only: [:index, :show, :new, :create]
+  root "books#index"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

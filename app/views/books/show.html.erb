@@ -1,2 +1,15 @@
-<h1>Books</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<h1><%= @book.title %></h1>
+
+<p>
+  <strong>Author:</strong> <%= @book.author %><br>
+  <strong>Genre:</strong> <%= @book.genre %><br>
+  <strong>Published Date:</strong> <%= @book.published_date %>
+</p>
+
+<h2>Ratings</h2>
+<%= link_to 'View Ratings', book_ratings_path(@book) %>
+<%= link_to 'Add Rating', new_book_rating_path(@book) %>
+
+<h2>Reviews</h2>
+<%= link_to 'View Reviews', book_reviews_path(@book) %>
+<%= link_to 'Add Review', new_book_review_path(@book) %>
