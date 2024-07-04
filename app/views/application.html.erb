@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BookApp</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_importmap_tags 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="brand">BookApp</div>
+      <ul class="nav-links">
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'About', about_path %></li>
+        <!-- Add more links as needed -->
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <%= yield %>
+  </div>
+</body>
+</html>

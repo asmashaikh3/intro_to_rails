@@ -76,3 +76,35 @@ body {
     margin-bottom: 5px;
   }
   
+  .navbar {
+    background-color: #003366;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+ 
+  .navbar .brand {
+    font-size: 1.5rem;
+  }
+ 
+  .navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+ 
+  .navbar .nav-links li {
+    display: inline;
+  }
+ 
+  .navbar .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  
+  .navbar .nav-links a:hover {
+    text-decoration: underline;
+  }
