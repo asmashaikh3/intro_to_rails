@@ -8,7 +8,16 @@
   </div>
 <% end %>
 
-<% if @books.any? %>
+<div>
+  <%= link_to 'Sort by Title', books_path(sort: :title) %> |
+  <%= link_to 'Sort by Author', books_path(sort: :author) %> |
+  <%= link_to 'Sort by Genre', books_path(sort: :genre) %> |
+  <%= link_to 'Sort by Published Date', books_path(sort: :published_date) %>
+</div>
+
+<% if @books.empty? %>
+  <p>No results found</p>
+<% else %>
   <ul class="book-list">
     <% @books.each do |book| %>
       <li class="book-item">
@@ -19,6 +28,6 @@
       </li>
     <% end %>
   </ul>
-<% else %>
-  <p>No results found</p>
+
+  <%= paginate @books %>
 <% end %>
