@@ -1,6 +1,14 @@
-class Book < ApplicationRecord
-    has_many :ratings, dependent: :destroy
-  has_many :reviews, dependent: :destroy
+# class Book < ApplicationRecord
+#   has_many :reviews
+#   has_many :ratings
 
-  validates :title, :author, :genre, :published_date, presence: true
-end
+#   validates :title, :author, :genre, :published_date, presence: true
+# end
+
+class Book < ApplicationRecord
+    has_many :reviews
+    has_many :ratings
+  
+    validates :title, :author, :genre, :published_date, presence: true
+  end
+  

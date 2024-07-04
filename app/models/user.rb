@@ -1,4 +1,7 @@
 class User < ApplicationRecord
     has_many :reviews
-    has_secure_password
-  end  
+    has_many :ratings
+  
+    validates :name, :email, presence: true
+  end
+  

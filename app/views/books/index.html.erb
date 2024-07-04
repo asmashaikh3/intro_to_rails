@@ -8,13 +8,17 @@
   </div>
 <% end %>
 
-<ul class="book-list">
-  <% @books.each do |book| %>
-    <li class="book-item">
-      <strong>Title:</strong> <%= link_to book.title, book %><br>
-      <strong>Author:</strong> <%= book.author %><br>
-      <strong>Genre:</strong> <%= book.genre %><br>
-      <strong>Published Date:</strong> <%= book.published_date %><br>
-    </li>
-  <% end %>
-</ul>
+<% if @books.any? %>
+  <ul class="book-list">
+    <% @books.each do |book| %>
+      <li class="book-item">
+        <strong>Title:</strong> <%= link_to book.title, book %><br>
+        <strong>Author:</strong> <%= book.author %><br>
+        <strong>Genre:</strong> <%= book.genre %><br>
+        <strong>Published Date:</strong> <%= book.published_date %><br>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No results found</p>
+<% end %>
