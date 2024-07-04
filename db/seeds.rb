@@ -2,20 +2,20 @@ require 'faker'
 
 # Clear existing data
 Book.destroy_all
+User.destroy_all
 Rating.destroy_all
 Review.destroy_all
-User.destroy_all
 
 # Create users
-users = 5.times.map do
+10.times do
   User.create!(
     username: Faker::Internet.username,
     email: Faker::Internet.email,
-    password: 'password'
+    password: "password"
   )
 end
 
-# Create books
+# Seed books with ratings and reviews
 50.times do
   book = Book.create!(
     title: Faker::Book.title,
@@ -33,7 +33,7 @@ end
   end
 
   # Create reviews for each book
-  users.each do |user|
+  User.all.each do |user|
     Review.create!(
       content: Faker::Lorem.paragraph,
       reviewer_name: user.username,

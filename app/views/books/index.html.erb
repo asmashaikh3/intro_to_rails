@@ -1,8 +1,16 @@
 <h1>Books</h1>
 
-<ul>
+<%= form_with(url: books_path, method: :get, local: true) do %>
+  <div>
+    <%= label_tag :search, "Search for:" %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search" %>
+  </div>
+<% end %>
+
+<ul class="book-list">
   <% @books.each do |book| %>
-    <li>
+    <li class="book-item">
       <strong>Title:</strong> <%= link_to book.title, book %><br>
       <strong>Author:</strong> <%= book.author %><br>
       <strong>Genre:</strong> <%= book.genre %><br>
