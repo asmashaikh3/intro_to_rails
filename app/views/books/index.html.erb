@@ -1,5 +1,14 @@
 <h1>Books</h1>
 
+<div>
+  <h3>Explore by Genre:</h3>
+  <ul>
+    <% @books.map(&:genre).uniq.compact.each do |genre| %>
+      <li><%= link_to genre, books_path(genre: genre) %></li>
+    <% end %>
+  </ul>
+</div>
+
 <%= form_with(url: books_path, method: :get, local: true) do %>
   <div>
     <%= label_tag :search, "Search for:" %>

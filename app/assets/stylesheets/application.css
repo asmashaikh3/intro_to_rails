@@ -6,8 +6,8 @@ body {
   }
   
   header {
-    background-color: #007BFF;
-    color: white;
+    background-color: #840d49;
+    color: rgb(241, 243, 130);
     padding: 10px 0;
   }
   
@@ -56,7 +56,7 @@ body {
   }
   
   h1 {
-    color: #333;
+    color: #510303;
   }
   
   .book-list {
@@ -65,7 +65,7 @@ body {
   }
   
   .book-item {
-    background: #fff;
+    background: #edd2e1;
     padding: 15px;
     margin: 10px 0;
     border: 1px solid #ddd;
@@ -77,34 +77,37 @@ body {
   }
   
   .navbar {
-    background-color: #003366;
+    background-color: #840d49;
     color: white;
     padding: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
- 
+  
   .navbar .brand {
     font-size: 1.5rem;
+    color: rgb(241, 243, 130);
   }
- 
+  
   .navbar .nav-links {
     list-style: none;
     display: flex;
     gap: 1rem;
   }
- 
+  
   .navbar .nav-links li {
-    display: inline;
+    position: relative;
   }
- 
+  
   .navbar .nav-links a {
-    color: white;
+    color: rgb(241, 243, 130);
     text-decoration: none;
     font-size: 1rem;
+    padding: 10px;
   }
   
   .navbar .nav-links a:hover {
     text-decoration: underline;
   }
+  
