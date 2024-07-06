@@ -4,43 +4,33 @@ require 'faker'
 Book.destroy_all
 User.destroy_all
 Rating.destroy_all
-Review.destroy_all
 
 # Create users
-10.times do
-  User.create!(
-    username: Faker::Internet.username,
-    email: Faker::Internet.email,
-    password: "password"
+users = 10.times.map do
+  User.create(
+    name: Faker::Name.name,
+    email: Faker::Internet.email
   )
 end
 
-# Seed books with ratings and reviews
-50.times do
-  book = Book.create!(
+# Create books
+books = 20.times.map do
+  Book.create(
     title: Faker::Book.title,
     author: Faker::Book.author,
     genre: Faker::Book.genre,
-    published_date: Faker::Date.backward(days: 365 * 5) # Random date in the past 5 years
+    published_date: Faker::Date.between(from: 50.years.ago, to: Date.today)
   )
+end
 
-  # Create ratings for each book
-  rand(5..10).times do
-    Rating.create!(
+# Create ratings
+books.each do |book|
+  users.sample(5).each do |user|
+    Rating.create(
       score: rand(1..5),
-      book: book
-    )
-  end
-
-  # Create reviews for each book
-  User.all.each do |user|
-    Review.create!(
-      content: Faker::Lorem.paragraph,
-      reviewer_name: user.username,
+      review: Faker::Lorem.paragraph_by_chars(number: 50), # Ensures review is at least 50 characters long
       book: book,
       user: user
     )
   end
 end
-
-puts "Seeding done!"
