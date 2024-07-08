@@ -1,22 +1,25 @@
-<h1>About BookApp</h1>
-<p>Welcome to BookApp, your go-to app for browsing books, ratings, and reviews.</p>
-<p>Our goal is to provide you with an easy and enjoyable way to discover new books and share your thoughts on them.</p>
-<p>Thank you for using BookApp!</p>
+<div class="max-w-4xl mx-auto px-4">
+  <h1 class="text-4xl font-bold text-purple-700 mb-6">About BookApp</h1>
 
-<h2>Data Sources</h2>
-<h3>Faker gem used</h3>
-<p>The application uses the following datasets:</p>
-<ul>
-  <li><strong>Books</strong>: Contains information about books, including title, author, genre, and published date.</li>
-  <li><strong>Ratings</strong>: Contains ratings for books, with a score associated with a book.</li>
-  <li><strong>Reviews</strong>: Contains reviews for books, with content and reviewer name associated with a book.</li>
-  <li><strong>Users</strong>: Contains information about users, including username, email, and password.</li>
-</ul>
+  <p class="mb-4 text-gray-700">Welcome to BookApp, your go-to app for browsing books, ratings, and reviews.</p>
+  <p class="mb-4 text-gray-700">Our goal is to provide you with an easy and enjoyable way to discover new books and share your thoughts on them.</p>
+  <p class="mb-6 text-gray-700">Thank you for using BookApp!</p>
 
-<h2>Database Tables</h2>
-    <ul>
-      <li><strong>Books</strong>: `title`, `author`, `genre`, `published_date`</li>
-      <li><strong>Ratings</strong>: `score`, `book_id`</li>
-      <li><strong>Reviews</strong>: `content`, `reviewer_name`, `book_id`</li>
-      <li><strong>Users</strong>: `username`, `email`, `password_digest`</li>
-    </ul>
+  <h2 class="text-3xl font-semibold text-purple-700 mb-4">Data Sources</h2>
+  <h3 class="text-2xl font-semibold text-purple-600 mb-2">Faker gem used</h3>
+  <p class="mb-4 text-gray-700">The application uses the following datasets:</p>
+  <ul class="list-disc list-inside mb-6 space-y-2 text-gray-700">
+    <li><strong>Books</strong>: Contains information about books, including title, author, genre, and published date.</li>
+    <li><strong>Ratings</strong>: Contains ratings for books, with a score associated with a book.</li>
+    <li><strong>Reviews</strong>: Contains reviews for books, with content and reviewer name associated with a book.</li>
+    <li><strong>Users</strong>: Contains information about users, including username, email, and password.</li>
+  </ul>
+
+  <h2 class="text-3xl font-semibold text-purple-700 mb-4">Database Tables</h2>
+  <ul class="list-disc list-inside mb-6 space-y-2 text-gray-700">
+    <li><strong>Books</strong>: `title`, `author`, `genre`, `published_date`</li>
+    <li><strong>Ratings</strong>: `score`, `book_id`</li>
+    <li><strong>Reviews</strong>: `content`, `reviewer_name`, `book_id`</li>
+    <li><strong>Users</strong>: `username`, `email`, `password_digest`</li>
+  </ul>
+</div>

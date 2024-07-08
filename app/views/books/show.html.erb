@@ -1,18 +1,42 @@
-<h1><%= @book.title %></h1>
-<p><strong>Author:</strong> <%= @book.author %></p>
-<p><strong>Genre:</strong> <%= @book.genre %></p>
-<p><strong>Published Date:</strong> <%= @book.published_date %></p>
+<h1 class="text-3xl font-bold mb-6"><%= @book.title %></h1>
 
-<h2>Ratings</h2>
-<ul>
-  <% @ratings.each do |rating| %>
-    <li>Score: <%= rating.score %></li>
-  <% end %>
-</ul>
+<div class="mb-6">
+  <p><strong>Author:</strong> <%= @book.author %></p>
+  <p><strong>Genre:</strong> <%= @book.genre %></p>
+  <p><strong>Published Date:</strong> <%= @book.published_date %></p>
+</div>
 
-<h2>Reviews</h2>
-<ul>
-  <% @reviews.each do |review| %>
-    <li><%= review.reviewer_name %>: <%= review.content %></li>
+<div class="mb-6">
+  <h2 class="text-2xl font-semibold">Ratings</h2>
+  <% if @ratings.empty? %>
+    <p class="text-red-500">No ratings found</p>
+  <% else %>
+    <ul class="space-y-4">
+      <% @ratings.each do |rating| %>
+        <li class="border-b border-gray-300 pb-4">
+          <strong>Score:</strong> <span class="text-yellow-500"><%= rating.score %> / 5</span>
+        </li>
+      <% end %>
+    </ul>
   <% end %>
-</ul>
+</div>
+
+<div class="mb-6">
+  <h2 class="text-2xl font-semibold">Reviews</h2>
+  <% if @reviews.empty? %>
+    <p class="text-red-500">No reviews found</p>
+  <% else %>
+    <ul class="space-y-4">
+      <% @reviews.each do |review| %>
+        <li class="border-b border-gray-300 pb-4">
+          <strong>Reviewer:</strong> <%= review.reviewer_name %><br>
+          <strong>Content:</strong> <p class="text-gray-700"><%= review.content %></p>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<div class="mt-6">
+  <%= link_to 'Back to Books', books_path, class: "bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600" %>
+</div>

@@ -7,6 +7,7 @@ gem "rails", "~> 7.1.3", ">= 7.1.3.4"
 
 gem 'faker'
 
+gem 'foreman'
 gem 'kaminari'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
@@ -70,3 +71,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "tailwindcss-rails", "~> 2.6"
