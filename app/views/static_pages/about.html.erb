@@ -2,3 +2,21 @@
 <p>Welcome to BookApp, your go-to app for browsing books, ratings, and reviews.</p>
 <p>Our goal is to provide you with an easy and enjoyable way to discover new books and share your thoughts on them.</p>
 <p>Thank you for using BookApp!</p>
+
+<h2>Data Sources</h2>
+<h3>Faker gem used</h3>
+<p>The application uses the following datasets:</p>
+<ul>
+  <li><strong>Books</strong>: Contains information about books, including title, author, genre, and published date.</li>
+  <li><strong>Ratings</strong>: Contains ratings for books, with a score associated with a book.</li>
+  <li><strong>Reviews</strong>: Contains reviews for books, with content and reviewer name associated with a book.</li>
+  <li><strong>Users</strong>: Contains information about users, including username, email, and password.</li>
+</ul>
+
+<h2>Database Tables</h2>
+    <ul>
+      <li><strong>Books</strong>: `title`, `author`, `genre`, `published_date`</li>
+      <li><strong>Ratings</strong>: `score`, `book_id`</li>
+      <li><strong>Reviews</strong>: `content`, `reviewer_name`, `book_id`</li>
+      <li><strong>Users</strong>: `username`, `email`, `password_digest`</li>
+    </ul>
