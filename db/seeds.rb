@@ -1,15 +1,19 @@
 require 'faker'
 
 # Clear existing data
+Review.destroy_all
+Rating.destroy_all
 Book.destroy_all
 User.destroy_all
-Rating.destroy_all
 
 # Create users
 users = 10.times.map do
-  User.create(
-    name: Faker::Name.name,
-    email: Faker::Internet.email
+  User.create!(
+    username: Faker::Internet.username,
+    email: Faker::Internet.email,
+    password: "password",
+    password_confirmation: "password"
+>>>>>>> 3f7713b (ahhh finally I fixed my broken code and I am back to where I was)
   )
 end
 
@@ -22,11 +26,9 @@ books = 20.times.map do
     published_date: Faker::Date.between(from: 50.years.ago, to: Date.today)
   )
 end
-
-# Create ratings
-books.each do |book|
-  users.sample(5).each do |user|
-    Rating.create(
+  # Create ratings for each book
+  rand(5..10).times do
+    Rating.create!(
       score: rand(1..5),
       review: Faker::Lorem.paragraph_by_chars(number: 50), # Ensures review is at least 50 characters long
       book: book,
@@ -34,3 +36,6 @@ books.each do |book|
     )
   end
 end
+
+puts "Seeding done!"
+

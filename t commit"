@@ -1,0 +1,118 @@
+[1mdiff --git a/app/models/book_genre.rb b/app/models/book_genre.rb[m
+[1mdeleted file mode 100644[m
+[1mindex 2559cbe..0000000[m
+[1m--- a/app/models/book_genre.rb[m
+[1m+++ /dev/null[m
+[36m@@ -1,5 +0,0 @@[m
+[31m-class BookGenre < ApplicationRecord[m
+[31m-    belongs_to :book[m
+[31m-    belongs_to :genre[m
+[31m-  end[m
+[31m-  [m
+\ No newline at end of file[m
+[1mdiff --git a/app/models/genre.rb b/app/models/genre.rb[m
+[1mdeleted file mode 100644[m
+[1mindex 5a82b0d..0000000[m
+[1m--- a/app/models/genre.rb[m
+[1m+++ /dev/null[m
+[36m@@ -1,7 +0,0 @@[m
+[31m-class Genre < ApplicationRecord[m
+[31m-    has_many :book_genres[m
+[31m-    has_many :books, through: :book_genres[m
+[31m-  [m
+[31m-    validates :name, presence: true[m
+[31m-  end[m
+[31m-  [m
+\ No newline at end of file[m
+[1mdiff --git a/app/models/role.rb b/app/models/role.rb[m
+[1mdeleted file mode 100644[m
+[1mindex 3f3f23f..0000000[m
+[1m--- a/app/models/role.rb[m
+[1m+++ /dev/null[m
+[36m@@ -1,7 +0,0 @@[m
+[31m-class Role < ApplicationRecord[m
+[31m-    has_many :user_roles[m
+[31m-    has_many :users, through: :user_roles[m
+[31m-  [m
+[31m-    validates :name, presence: true[m
+[31m-  end[m
+[31m-  [m
+\ No newline at end of file[m
+[1mdiff --git a/app/models/user.rb b/app/models/user.rb[m
+[1mindex 60e7ecc..99044d9 100644[m
+[1m--- a/app/models/user.rb[m
+[1m+++ b/app/models/user.rb[m
+[36m@@ -1,7 +1,5 @@[m
+ class User < ApplicationRecord[m
+[31m-  has_many :user_roles[m
+[31m-  has_many :roles, through: :user_roles[m
+[31m-[m
+[32m+[m[32m  has_secure_password[m
+   has_many :ratings[m
+   has_many :reviews[m
+ [m
+[1mdiff --git a/app/models/user_role.rb b/app/models/user_role.rb[m
+[1mdeleted file mode 100644[m
+[1mindex 2ca98db..0000000[m
+[1m--- a/app/models/user_role.rb[m
+[1m+++ /dev/null[m
+[36m@@ -1,5 +0,0 @@[m
+[31m-class UserRole < ApplicationRecord[m
+[31m-    belongs_to :user[m
+[31m-    belongs_to :role[m
+[31m-  end[m
+[31m-  [m
+\ No newline at end of file[m
+[1mdiff --git a/db/migrate/20240708045724_create_genres.rb b/db/migrate/20240708045724_create_genres.rb[m
+[1mdeleted file mode 100644[m
+[1mindex 2eb9dee..0000000[m
+[1m--- a/db/migrate/20240708045724_create_genres.rb[m
+[1m+++ /dev/null[m
+[36m@@ -1,9 +0,0 @@[m
+[31m-class CreateGenres < ActiveRecord::Migration[7.1][m
+[31m-  def change[m
+[31m-    create_table :genres do |t|[m
+[31m-      t.string :name[m
+[31m-[m
+[31m-      t.timestamps[m
+[31m-    end[m
+[31m-  end[m
+[31m-end[m
+[1mdiff --git a/db/migrate/20240708045752_create_join_table_books_genres.rb b/db/migrate/20240708045752_create_join_table_books_genres.rb[m
+[1mdeleted file mode 100644[m
+[1mindex c06a818..0000000[m
+[1m--- a/db/migrate/20240708045752_create_join_table_books_genres.rb[m
+[1m+++ /dev/null[m
+[36m@@ -1,8 +0,0 @@[m
+[31m-class CreateJoinTableBooksGenres < ActiveRecord::Migration[6.1][m
+[31m-  def change[m
+[31m-    create_join_table :books, :genres do |t|[m
+[31m-      t.index :book_id[m
+[31m-      t.index :genre_id[m
+[31m-    end[m
+[31m-  end[m
+[31m-end[m
+[1mdiff --git a/db/migrate/20240708050053_create_roles.rb b/db/migrate/20240708050053_create_roles.rb[m
+[1mdeleted file mode 100644[m
+[1mindex f89d091..0000000[m
+[1m--- a/db/migrate/20240708050053_create_roles.rb[m
+[1m+++ /dev/null[m
+[36m@@ -1,9 +0,0 @@[m
+[31m-class CreateRoles < ActiveRecord::Migration[7.1][m
+[31m-  def change[m
+[31m-    create_table :roles do |t|[m
+[31m-      t.string :name[m
+[31m-[m
+[31m-      t.timestamps[m
+[31m-    end[m
+[31m-  end[m
+[31m-end[m
+[1mdiff --git a/db/migrate/20240708050104_create_join_table_users_roles.rb b/db/migrate/20240708050104_create_join_table_users_roles.rb[m
+[1mdeleted file mode 100644[m
+[1mindex 6a8204a..0000000[m
+[1m--- a/db/migrate/20240708050104_create_join_table_users_roles.rb[m
+[1m+++ /dev/null[m
+[36m@@ -1,8 +0,0 @@[m
+[31m-class CreateJoinTableUsersRoles < ActiveRecord::Migration[6.1][m
+[31m-  def change[m
+[31m-    create_join_table :users, :roles do |t|[

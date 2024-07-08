@@ -1,20 +1,20 @@
 class BooksController < ApplicationController
   def index
-    @books = if params[:search].present?
-               Book.where("title LIKE ? OR author LIKE ? OR genre LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
-                   .order(params[:sort])
-                   .page(params[:page])
-                   .per(6)
-             elsif params[:genre].present?
-               Book.where(genre: params[:genre])
-                   .order(params[:sort])
-                   .page(params[:page])
-                   .per(6)
-             else
-               Book.order(params[:sort])
-                   .page(params[:page])
-                   .per(6)
-             end
+    @books = Book.all
+
+    if params[:search].present?
+      @books = @books.where("title LIKE ? OR author LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%")
+    end
+
+    if params[:genre].present?
+      @books = @books.where(genre: params[:genre])
+    end
+
+    if params[:sort].present?
+      @books = @books.order(params[:sort])
+    end
+
+    @books = @books.page(params[:page])
   end
 
   def show
